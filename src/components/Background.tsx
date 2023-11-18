@@ -1,6 +1,6 @@
 import { cn } from "../lib/utils";
 
-const Wrapper = ({
+const Background = ({
   children,
   className,
 }: {
@@ -10,7 +10,7 @@ const Wrapper = ({
   return (
     <div className={cn(className)}>
       <div
-        className="absolute  inset-x-0 top-28 -z-10 transform-gpu overflow-hidden blur-3xl"
+        className="absolute  inset-x-0  -z-10 transform-gpu overflow-hidden blur-3xl"
         aria-hidden="true"
       >
         <div
@@ -28,4 +28,4 @@ const Wrapper = ({
     </div>
   );
 };
-export default Wrapper;
+export default Background;

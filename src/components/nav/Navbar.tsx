@@ -4,8 +4,11 @@ import { DarkModeToggle } from "./DarkModeToggle";
 import { motion } from "framer-motion";
 import { links } from "@/lib/data";
 import Link from "next/link";
+import clsx from "clsx";
 
 export default function Navbar() {
+  const [active, setActive] = React.useState("");
+
   return (
     <motion.div
       className="sticky  md:top-6 top-0 z-30 bg-gray-300/50 rounded-none 
@@ -24,7 +27,15 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.hash}
-              className="hover:text-blue-600 dark:hover:text-blue-300"
+              className={clsx(
+                "hover:text-blue-600   dark:hover:text-blue-300",
+                {
+                  "text-blue-600   dark:text-blue-300": active === link.name,
+                }
+              )}
+              onClick={() => {
+                setActive(link.name);
+              }}
             >
               {link.name}
             </Link>

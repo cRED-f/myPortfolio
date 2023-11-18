@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-
+import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@/components/nav/Navbar";
 import Wrapper from "@/components/Wrapper";
+import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="!scroll-smooth">
       <body>
         <ThemeProvider
           attribute="class"
@@ -29,6 +30,8 @@ export default function RootLayout({
           <Wrapper>
             <Navbar />
             {children}
+            <Footer />
+            <Toaster />
           </Wrapper>
         </ThemeProvider>
       </body>

@@ -1,26 +1,20 @@
-"use client";
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
 import profile from "@/assets/images/profile.jpeg";
 import { Button } from "../ui/button";
 import { ArrowRight, FileDown, Github, LinkedinIcon } from "lucide-react";
+import {
+  MotionDiv4,
+  MotionDiv5,
+  MotionDiv6,
+  MotionDiv1,
+} from "../motionComp/MotionDiv";
 import Link from "next/link";
 export default function Homepage() {
   return (
-    <div className="h-[70vh] bg-red-200">
+    <div className="h-[70vh] scroll-mt-[20rem]" id="home">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        <motion.div
-          className="mt-20 outline rounded-full outline-white shadow-2xl"
-          initial={{
-            y: -100,
-            opacity: 0,
-          }}
-          animate={{
-            y: 0,
-            opacity: 2,
-          }}
-        >
+        <MotionDiv4 className="mt-20 outline rounded-full outline-white shadow-2xl">
           <Image
             src={profile}
             height={100}
@@ -28,38 +22,12 @@ export default function Homepage() {
             alt="profile"
             className="rounded-full"
           />
-        </motion.div>
+        </MotionDiv4>
 
-        <motion.div
-          className="w-fit flex flex-col"
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 2 }}
-        >
-          <motion.h1
-            className="break-words text-center mt-8 dark:text-white text-black text-2xl max-w-3xl"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 125,
-              delay: 0.1,
-              duration: 0.8,
-            }}
-          >
+        <MotionDiv5 className="w-fit flex flex-col">
+          <MotionDiv6 className="break-words text-center mt-8 dark:text-white text-black text-2xl max-w-3xl">
             <span className="font-bold flex justify-center ">
-              Hi, I&apos;m Fahim.{" "}
-              <motion.h1
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 125,
-                  delay: 0.1,
-                  duration: 0.8,
-                }}
-              >
-                👋
-              </motion.h1>
+              Hi, I&apos;m Fahim. <MotionDiv6 className="">👋</MotionDiv6>
             </span>{" "}
             I&apos;m a{" "}
             <span className="font-bold">Full-Stack-Web Developer</span>.{" "}
@@ -72,23 +40,18 @@ export default function Homepage() {
             <span className="animate-pulse font-bold text-indigo-800 dark:text-indigo-300">
               Next.js
             </span>{" "}
-          </motion.h1>
-          <motion.div
+          </MotionDiv6>
+          <MotionDiv1
+            id=""
             className="flex flex-col md:flex-row items-center gap-2 justify-center mt-8"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 125,
-              delay: 0.1,
-              duration: 0.8,
-            }}
           >
             <div className="flex flex-col md:flex-row gap-3">
-              <Button className="rounded-full px-8">
-                Contact me
-                <ArrowRight className="ml-2" />
-              </Button>
+              <Link href="#contact">
+                <Button className="rounded-full px-8">
+                  Contact me
+                  <ArrowRight className="ml-2" />
+                </Button>
+              </Link>
               <Button variant={"outline"} className="rounded-full px-8">
                 Download Resume <FileDown className="ml-2" />
               </Button>
@@ -105,8 +68,8 @@ export default function Homepage() {
                 </Button>
               </Link>
             </div>
-          </motion.div>
-        </motion.div>
+          </MotionDiv1>
+        </MotionDiv5>
       </div>
     </div>
   );
