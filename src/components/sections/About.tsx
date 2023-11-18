@@ -3,12 +3,12 @@ import { MotionDiv1 } from "../motionComp/MotionDiv";
 export default function About() {
   return (
     <MotionDiv1
-      className="h-[80vh] flex flex-col max-w-7xl mt-[10rem] md:mt-12 mx-auto scroll-mt-[10rem] items-center"
+      className="h-screen md:h-[80vh] flex flex-col max-w-7xl mt-[10rem] md:mt-12 mx-auto scroll-mt-[10rem] items-center"
       id="about"
     >
       <h1 className="text-4xl font-bold">About Me</h1>
 
-      <div className="max-w-3xl mt-4 font-sans text-black dark:text-white  text-start ">
+      <div className="w-[20rem] md:w-fit md:max-w-3xl mt-4 font-sans text-black dark:text-white  text-start ">
         {" "}
         <p>
           {" "}

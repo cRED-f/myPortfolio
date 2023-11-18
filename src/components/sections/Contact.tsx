@@ -22,7 +22,7 @@ export default function Contact() {
         </a>{" "}
         or through this form
       </p>
-      <div className="max-w-2xl max-w-1xl  mx-auto mt-6">
+      <div className="w-[20rem] md:w-full md:max-w-2xl max-w-1xl  mx-auto mt-6">
         <form
           action={async (formData) => {
             const { data, error } = await sendEmail(formData);
