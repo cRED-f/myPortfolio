@@ -2,46 +2,84 @@
 import React from "react";
 import { DarkModeToggle } from "./DarkModeToggle";
 import { motion } from "framer-motion";
-import { links } from "@/lib/data";
-import Link from "next/link";
-import clsx from "clsx";
-
+import { FloatingDock } from "../ui/floating-dock";
+import {
+  IconBrandGithub,
+  IconMail,
+  IconBrandOpenai,
+  IconHome,
+  IconBrain,
+  IconUserMinus,
+  IconBrandLinkedin,
+} from "@tabler/icons-react";
 export default function Navbar() {
-  const [active, setActive] = React.useState("");
+  const links = [
+    {
+      title: "Home",
+      icon: (
+        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#home",
+    },
 
+    {
+      title: "About",
+      icon: (
+        <IconUserMinus className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#about",
+    },
+    {
+      title: "Projects",
+      icon: (
+        <IconBrandOpenai className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#projects",
+    },
+
+    {
+      title: "Skills",
+      icon: (
+        <IconBrain className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#skills",
+    },
+
+    {
+      title: "Contact",
+      icon: (
+        <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#contact",
+    },
+    {
+      title: "LinkedIn",
+      icon: (
+        <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "https://www.linkedin.com/in/mr-islam-fahim",
+    },
+    {
+      title: "GitHub",
+      icon: (
+        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "https://github.com/cRED-f",
+    },
+  ];
   return (
     <motion.div
-      className="sticky  md:top-6 top-0 z-30 bg-gray-300/50 rounded-none 
-     md:shadow-xl md:rounded-full w-fit mx-auto dark:bg-[#111926] backdrop-blur-3xl bg-opacity-20"
-      initial={{ y: -100, opacity: 0 }}
+      className="fixed bottom-0 md:bottom-1 w-full z-30"
+      initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 2 }}
     >
       <motion.div
-        className="flex flex-col md:flex-row items-center py-3 px-5"
-        initial={{ y: -100, opacity: 1 }}
+        className="flex  gap-1 items-center py-3 px-5"
+        initial={{ y: 100, opacity: 1 }}
         animate={{ y: 0, opacity: 2 }}
       >
-        {/* menus */}
-        <div className="flex gap-6 flex-wrap items-center justify-center dark:text-white text-black">
-          {links.map((link) => (
-            <Link
-              key={link.name}
-              href={link.hash}
-              className={clsx(
-                "hover:text-blue-600   dark:hover:text-blue-300",
-                {
-                  "text-blue-600   dark:text-blue-300": active === link.name,
-                }
-              )}
-              onClick={() => {
-                setActive(link.name);
-              }}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <DarkModeToggle />
-        </div>
+        <FloatingDock items={links} desktopClassName=" md:flex" />
+        <DarkModeToggle />
       </motion.div>
     </motion.div>
   );

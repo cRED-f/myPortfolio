@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@/components/nav/Navbar";
 import Wrapper from "@/components/Wrapper";
-import Footer from "@/components/Footer";
+
+import { ConvexClientProvider } from "@/components/providers/ConvexClientProvider";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,20 +20,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="!scroll-smooth">
-      <body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="font-fira">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Wrapper>
-            <Navbar />
-            {children}
-            <Footer />
-            <Toaster />
-          </Wrapper>
+          <ConvexClientProvider>
+            <Wrapper>
+              <Navbar />
+              {children}
+            </Wrapper>
+          </ConvexClientProvider>{" "}
         </ThemeProvider>
       </body>
     </html>
