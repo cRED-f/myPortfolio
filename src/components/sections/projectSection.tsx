@@ -274,7 +274,7 @@ export function ProjectSection() {
                                   alt={project.title}
                                   height={720}
                                   width={1400}
-                                  className="rounded-2xl object-cover w-full h-[60vh] brightness-[0.85] group-hover:brightness-100 transition-all duration-500"
+                                  className="rounded-2xl object-cover w-full h-[70vh] brightness-[0.85] group-hover:brightness-100 transition-all duration-500"
                                   priority
                                   draggable={false}
                                 />
@@ -445,19 +445,6 @@ export function ProjectSection() {
                 )}
               </>
             )}
-
-            {/* Add Project Button */}
-            <div className="mt-8 flex justify-center">
-              <Link href="/upload" passHref>
-                <motion.div
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Add New Project
-                </motion.div>
-              </Link>
-            </div>
           </div>
         </ContainerScroll>
       </div>
